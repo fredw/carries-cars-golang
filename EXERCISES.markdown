@@ -8,9 +8,9 @@ Take 15 minutes to look around in the example project. What do you notice?
     - Well established interfaces with really clear behaviours
 - List 3 questions on things that have you puzzled.
     - Why no having one go.mod considering both packages are part of the same app, also considering priceEngine depends on money package
-    - On money.go:38, why we are not comparing the amount and ISO code from the money using the functions we are calling from other?
+    - On money.go, on the Equals function, why we are not comparing the amount and ISO code from the money using the functions we are calling from other?
     - Why we don't call duration as VerifiedDuration to make it more explicit that is a verified duration?
-
+    - [Additional question, sorry!] Why do not make use of pointer receivers on trustedMoney functions, and change the data on existent pointers instead of creating new trustedMoney?
 
 ## Exercise 2: Enrich the Pricing Engine with the ability to extend the Reservation
 
