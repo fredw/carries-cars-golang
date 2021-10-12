@@ -4,6 +4,8 @@ import (
 	"errors"
 
 	"carries-cars.com/money"
+	pkg "carries-cars.com/package"
+	"carries-cars.com/rental"
 )
 
 type Duration interface {
@@ -59,4 +61,8 @@ func CalculateReservationPrice(duration Duration) money.Money {
 	}
 
 	return extraTimeSurcharge.MultiplyAndRound(durationInMinutes)
+}
+
+func CalculateRentalPrice(pkg pkg.Package, rental rental.Rental) money.Money {
+	return pkg.Price().MultiplyAndRound(float64(rental.Duration()))
 }

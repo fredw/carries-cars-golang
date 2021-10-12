@@ -1,3 +1,15 @@
+## Learn about the domain: Carries Cars
+
+Carries Cars is a car-sharing service that started operating in Amsterdam 6 months ago. 
+The service operates 300 vehicles that are spread out over the compact city center. 
+All vehicles are fully electric vehicles because of demands by the city as part of granting the free-floating fleet operating agreement.
+
+After the customers reserved a car, they have 20 minutes to reach it. 
+If the vehicle is in good shape then they accept a rental agreement using a smartphone app. 
+From that point onwards they can start driving around. 
+Pricing is straightforward: you pay per minute (e.g. € 0.24) and are allowed a maximum (e.g. 250 kilometers) mileage.
+
+
 ## Exercise 1: Analyze existing code
 
 Take 15 minutes to look around in the example project. What do you notice?
