@@ -1,8 +1,9 @@
 package money_test
 
 import (
-	"carries-cars.com/money"
 	"testing"
+
+	"carries-cars.com/money"
 )
 
 func Test_Money_Equals_detects_equal_values(t *testing.T) {
@@ -65,4 +66,13 @@ func Test_Money_Amount_exposes_value(t *testing.T) {
 
 func Test_Money_CurrencyIsoCode_exposes_value(t *testing.T) {
 	t.Skip("Todo")
+}
+
+func Test_Money_Add_adds(t *testing.T) {
+	actual := money.EUR(200).Add(20)
+	expected := money.EUR(220)
+
+	if actual != expected {
+		t.Fatalf("EUR(200).Add(2) want = EUR(%v), have = EUR(%v)", expected.Amount(), actual.Amount())
+	}
 }

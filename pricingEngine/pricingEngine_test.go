@@ -28,8 +28,9 @@ func Test_CalculatePrice_surcharge_when_distance_is_greater_than_250km(t *testin
 
 	// price per minute = 30 * 1 = 30
 	// price per additional KM = 270 - 250 = 20 * 19 = 380
+	// total price = 30 + 380 = 410
 	got := pricingEngine.CalculatePrice(pricePerMinute, duration, distance)
-	expected := money.EUR(380)
+	expected := money.EUR(410)
 
 	assert.Equal(t, expected, got)
 }

@@ -41,8 +41,11 @@ func (duration duration) DurationInMinutes() int {
 
 func CalculatePrice(pricePerMinute money.Money, duration Duration, distanceInKM int) money.Money {
 	durationInMinutes := float64(duration.DurationInMinutes())
-
-	return pricePerMinute.MultiplyAndRound(durationInMinutes)
+	price := pricePerMinute.MultiplyAndRound(durationInMinutes)
+	if distanceInKM > 250 {
+		price = price.Add((distanceInKM - 250) * 19)
+	}
+	return price
 }
 
 const reservationTimeLimitInMinutes = 20

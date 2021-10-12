@@ -10,6 +10,7 @@ type Money interface {
 	Amount() int
 	CurrencyIsoCode() CurrencyIsoCode
 	MultiplyAndRound(multiplier float64) Money
+	Add(amount int) Money
 	Equals(other Money) bool
 }
 
@@ -36,6 +37,13 @@ func (money trustedMoney) MultiplyAndRound(multiplier float64) Money {
 
 	return trustedMoney{
 		amount:          multipliedAmountRounded,
+		currencyIsoCode: money.currencyIsoCode,
+	}
+}
+
+func (money trustedMoney) Add(amount int) Money {
+	return trustedMoney{
+		amount:          money.amount + amount,
 		currencyIsoCode: money.currencyIsoCode,
 	}
 }
