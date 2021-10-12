@@ -12,11 +12,26 @@ import (
 func Test_CalculatePrice_charged_per_minute(t *testing.T) {
 	pricePerMinute := money.EUR(30)
 	duration, _ := pricingEngine.DurationInMinutes(1)
+	distance := 150
 	expected := money.EUR(30)
 
-	if !pricingEngine.CalculatePrice(pricePerMinute, duration).Equals(expected) {
+	if !pricingEngine.CalculatePrice(pricePerMinute, duration, distance).Equals(expected) {
 		t.Fatalf("Price EUR(30) x 1min, want = EUR(30), have = EUR(%v)", expected.Amount())
 	}
+}
+
+func Test_CalculatePrice_surcharge_when_distance_is_greater_than_250km(t *testing.T) {
+	pricePerMinute := money.EUR(30)
+	duration, err := pricingEngine.DurationInMinutes(1)
+	require.NoError(t, err, "failed to calculate the duration")
+	distance := 270
+
+	// price per minute = 30 * 1 = 30
+	// price per additional KM = 270 - 250 = 20 * 19 = 380
+	got := pricingEngine.CalculatePrice(pricePerMinute, duration, distance)
+	expected := money.EUR(380)
+
+	assert.Equal(t, expected, got)
 }
 
 func Test_Duration_guards_against_zero_or_negative_duration(t *testing.T) {

@@ -39,7 +39,7 @@ func (duration duration) DurationInMinutes() int {
 	return duration.durationInMinutes
 }
 
-func CalculatePrice(pricePerMinute money.Money, duration Duration) money.Money {
+func CalculatePrice(pricePerMinute money.Money, duration Duration, distanceInKM int) money.Money {
 	durationInMinutes := float64(duration.DurationInMinutes())
 
 	return pricePerMinute.MultiplyAndRound(durationInMinutes)
