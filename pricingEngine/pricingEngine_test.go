@@ -1,9 +1,12 @@
 package pricingEngine_test
 
 import (
+	"testing"
+
 	"carries-cars.com/money"
 	pricingEngine "carries-cars.com/pricingEngine"
-	"testing"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func Test_CalculatePrice_charged_per_minute(t *testing.T) {
@@ -57,4 +60,14 @@ func Test_UnverifiedDuration_Invalid_Input(t *testing.T) {
 	if expected != actual.Error() {
 		t.Fatalf("UnverifiedDuration{DurationInMinutes: 0}.Verify(), want = error(%q), have = error(%q)", expected, actual.Error())
 	}
+}
+
+func Test_CalculatePrice_reservation(t *testing.T) {
+	duration, err := pricingEngine.DurationInMinutes(15)
+	require.NoError(t, err, "failed to calculate the duration")
+
+	got := pricingEngine.CalculateReservationPrice(duration)
+	expected := money.EUR(0)
+
+	assert.Equal(t, expected, got)
 }
