@@ -71,3 +71,15 @@ func Test_CalculatePrice_reservation(t *testing.T) {
 
 	assert.Equal(t, expected, got)
 }
+
+func Test_CalculatePrice_extend_reservation(t *testing.T) {
+	duration, err := pricingEngine.DurationInMinutes(25)
+	require.NoError(t, err, "failed to calculate the duration")
+
+	// 20min = 0EUR
+	// 5min * 9EUR = 45EUR
+	got := pricingEngine.CalculateReservationPrice(duration)
+	expected := money.EUR(45)
+
+	assert.Equal(t, expected, got)
+}
