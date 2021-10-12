@@ -14,7 +14,9 @@ Take 15 minutes to look around in the example project. What do you notice?
 
 ## Exercise 2: Enrich the Pricing Engine with the ability to extend the Reservation
 
-Some customers complain that 20 minutes isn't enough to reach the vehicle. For those situations it should be possible to extend the Reservation of the vehicle. In exchange for that Carries Cars charges € 0.09 per minute.
+Some customers complain that 20 minutes isn't enough to reach the vehicle. 
+For those situations it should be possible to extend the Reservation of the vehicle. 
+In exchange for that Carries Cars charges € 0.09 per minute.
 
 Capture this behavior in one or more tests
 Commit and push the tests
@@ -24,7 +26,8 @@ Look for refactoring opportunities. Commit each refactor as a separate commit an
 
 ## Exercise 3: Enrich the Pricing Engine with the ability exceed the included mileage
 
-Every pay-as-you-go rental includes a maximum of 250 kilometers of mileage. Beyond that customers should be charged an additional price of € 0.19 per kilometer.
+Every pay-as-you-go rental includes a maximum of 250 kilometers of mileage. 
+Beyond that customers should be charged an additional price of € 0.19 per kilometer.
 
 Capture the price increase for exceeding the included mileage in one or more tests
 Commit and push the tests
